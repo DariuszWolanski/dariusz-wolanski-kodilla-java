@@ -2,12 +2,8 @@ package com.kodilla.testing.collection;
 
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,10 +39,12 @@ public class CollectionTestSuite {
         ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing" + listNumbers);
         //Then
-        Assert.assertEquals(emptyList,listNumbers);
+        Assertions.assertEquals(emptyList,listNumbers);
     }
 
-
+    @DisplayName("when create first List with something values, " +
+            "then create second List have the same values"
+    )
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
@@ -57,7 +55,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(list);
         System.out.println("Testing" + listNumbers);
         //Then
-        Assert.assertEquals(oddList, listNumbers);
+        Assertions.assertEquals(oddList, listNumbers);
     }
 }
 
