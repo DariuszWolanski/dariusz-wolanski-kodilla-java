@@ -46,7 +46,7 @@ public class ShapeCollectorTest {
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(square);
 
-        int sizeShapeList = shapeList.size();
+        int sizeShapeList = shapeCollector.getShapeList().size();
 
         //When
         ArrayList<Shape> shapeListTest = new ArrayList<>();
@@ -55,7 +55,7 @@ public class ShapeCollectorTest {
         shapeCollectorTest.addFigure(triangle);
         shapeCollectorTest.addFigure(square);
 
-        int sizeShapeListTest = shapeListTest.size();
+        int sizeShapeListTest = shapeCollectorTest.getShapeList().size();
 
         //Then
 
