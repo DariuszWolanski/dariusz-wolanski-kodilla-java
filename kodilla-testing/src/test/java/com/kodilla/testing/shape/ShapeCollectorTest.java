@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 
+
 public class ShapeCollectorTest {
 
 
@@ -82,12 +83,7 @@ public class ShapeCollectorTest {
         int sizeShapeList = shapeCollector.getShapeList().size();
 
         //When
-        ArrayList<Shape> shapeArrayList = new ArrayList<>();
-        ShapeCollector shapeCollectorTest = new ShapeCollector(shapeArrayList);
-        shapeCollectorTest.addFigure(circle);
-        shapeCollectorTest.addFigure(triangle);
-        shapeCollectorTest.addFigure(square);
-
+        ShapeCollector shapeCollectorTest = new ShapeCollector(shapeList);
         shapeCollectorTest.removeFigure(triangle);
 
         int sizeShapeListTest = shapeCollectorTest.getShapeList().size();
