@@ -90,14 +90,9 @@ public class ShapeCollectorTest {
         Shape figure = shapeCollector.getFigure(1);
 
         //When
-        ArrayList<Shape> shapeListTest = new ArrayList<>();
-        shapeListTest.add(circle);
-        shapeListTest.add(triangle);
-        shapeListTest.add(square);
-        Shape figureTest = shapeListTest.get(1);
 
         //Then
-        Assertions.assertEquals(figureTest, figure);
+        Assertions.assertEquals(shapeList.get(1), figure);
 
     }
 
