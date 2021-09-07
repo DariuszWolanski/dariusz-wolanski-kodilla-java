@@ -17,7 +17,7 @@ public final class Forum {
         theUserList.add(new ForumUser(19641122, "Mirosław", 'M', 1964, 11, 22, 116));
     }
 
-    public List<ForumUser> getList() {
+    public List<ForumUser> getUserList() {
         return new ArrayList<>(theUserList);
     }
 

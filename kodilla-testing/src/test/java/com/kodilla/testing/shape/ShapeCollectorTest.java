@@ -47,14 +47,9 @@ public class ShapeCollectorTest {
         int sizeShapeList = shapeCollector.getShapeList().size();
 
         //When
-        ArrayList<Shape> shapeListTest = new ArrayList<>();
-        shapeListTest.add(circle);
-        shapeListTest.add(triangle);
-        shapeListTest.add(square);
-        int sizeShapeListTest = shapeListTest.size();
 
         //Then
-        Assertions.assertEquals(sizeShapeListTest, sizeShapeList);
+        Assertions.assertEquals(3, sizeShapeList);
 
     }
 
@@ -74,15 +69,10 @@ public class ShapeCollectorTest {
         int sizeShapeList = shapeCollector.getShapeList().size();
 
         //When
-        ArrayList<Shape> shapeListTest = new ArrayList<>();
-        shapeListTest.add(circle);
-        shapeListTest.add(triangle);
-        shapeListTest.add(square);
-        shapeListTest.remove(triangle);
-        int sizeShapeListTest = shapeListTest.size();
+
 
         //Then
-        Assertions.assertEquals(sizeShapeListTest, sizeShapeList);
+        Assertions.assertEquals(2, sizeShapeList);
 
     }
 
@@ -125,13 +115,9 @@ public class ShapeCollectorTest {
         shapeCollector.showFigures();
 
         //When
-        ArrayList<Shape> shapeListTest = new ArrayList<>();
-        shapeListTest.add(circle);
-        shapeListTest.add(triangle);
-        shapeListTest.add(square);
 
         //Then
-        Assertions.assertEquals(shapeListTest, shapeCollector.showFigures());
+        Assertions.assertEquals(shapeList, shapeCollector.showFigures());
 
     }
 }
