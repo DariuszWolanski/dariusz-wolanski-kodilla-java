@@ -16,10 +16,12 @@ public class StreamMain {
                 .filter(forumUser -> forumUser.getNumberOfPosts() > 1)
                 .collect(Collectors.toMap(ForumUser::getIdUser, forumUser -> forumUser));
 
-        System.out.println("# elements: " + theMapForum.size());             // [2]
+        System.out.println("# elements: " + theMapForum.size());
         theMapForum.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())                   // [3]
+                .map(integerForumUserEntry -> integerForumUserEntry.getKey()
+                + " " + integerForumUserEntry.getValue())
                 .forEach(System.out::println);
     }
+
 
 }
