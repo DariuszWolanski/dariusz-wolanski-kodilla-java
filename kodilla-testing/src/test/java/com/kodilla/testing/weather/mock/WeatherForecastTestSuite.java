@@ -14,7 +14,7 @@ import java.util.Map;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class WeatherForecastTestSuite {                                              // [7]
+class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures temperaturesMock;
@@ -36,7 +36,7 @@ class WeatherForecastTestSuite {                                              //
 
         //Then
         Assertions.assertEquals(5, quantityOfSensors);
-    }                                                                      // [14]
+    }
 
     @Test
     void testAverageTemperatureOfMeasurementsWithMock() {
@@ -58,26 +58,27 @@ class WeatherForecastTestSuite {                                              //
 
     }
 
-//    @Test
-//    void testaMedianOfTheMeasurementsWithMock() {
-//        //Given
-//        Map<String, Double> temperaturesMap = new HashMap<>();
-//        temperaturesMap.put("Rzeszow", 25.5);
-//        temperaturesMap.put("Krakow", 26.2);
-//        temperaturesMap.put("Wroclaw", 24.8);
-//        temperaturesMap.put("Warszawa", 25.2);
-//        temperaturesMap.put("Gdansk", 26.1);
-//        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
-//        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
-//
-//
-//        //When
-//
-//
-//        //Then
-//
-//        Assertions.assertEquals(24.8, weatherForecast.medianOfTheMeasurements());
-//
-//    }
+    @Test
+    void testaMedianOfTheMeasurementsWithMock() {
+        //Given
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
+
+        //When
+
+        double median = weatherForecast.medianOfTheMeasurements();
+
+        //Then
+
+        Assertions.assertEquals(25.5, median);
+
+    }
 
 }

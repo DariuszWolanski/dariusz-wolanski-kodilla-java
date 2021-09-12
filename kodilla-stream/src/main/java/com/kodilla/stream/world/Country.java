@@ -1,5 +1,6 @@
 package com.kodilla.stream.world;
 
+import java.math.BigInteger;
 import java.util.Objects;
 
 public final class Country {
@@ -16,10 +17,6 @@ public final class Country {
         return nameCountry;
     }
 
-    public int getPopulationSize() {
-        return populationSize;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,5 +28,18 @@ public final class Country {
     @Override
     public int hashCode() {
         return Objects.hash(nameCountry, populationSize);
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "nameCountry='" + nameCountry + '\'' +
+                ", populationSize=" + populationSize +
+                '}';
+    }
+
+    public BigInteger getPopulationSize() {
+        BigInteger populationOfCountryOfBigInteter = new BigInteger(String.valueOf(populationSize));
+        return populationOfCountryOfBigInteter;
     }
 }
