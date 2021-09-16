@@ -160,16 +160,16 @@ class BoardTestSuite {
                 .map(s -> s.intValue())
                 .reduce(0, (sum, currenr) -> sum += currenr);
 
-        double averageNumberOfDaystoHandOverTheProject = (int) project.getTaskLists().stream()
+        double quantityTask = (int) project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
-                .map(task -> task.getDeadline())
-                .map(s -> LocalDate.now().until(s, DAYS))
-                .map(s -> s.intValue())
-                .reduce(0, (sum, currenr) -> sum += currenr);
-        double averageTime = (averageNumberOfDaysSinceProjectCreation + averageNumberOfDaystoHandOverTheProject)/3;
+                .map(s -> s.getCreated())
+                .count();
+
+
+        double averageTime = averageNumberOfDaysSinceProjectCreation / quantityTask;
         //Then
-        assertEquals(55.0/3, averageTime);
+        assertEquals(10, averageTime);
 
 
     }
