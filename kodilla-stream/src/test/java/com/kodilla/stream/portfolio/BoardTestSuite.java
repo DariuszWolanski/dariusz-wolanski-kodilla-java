@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -144,29 +145,31 @@ class BoardTestSuite {
     }
 
     @Test
-    void testAddTaskListAverageWorkingOnTask(){
+    void testAddTaskListAverageWorkingOnTask() {
         //Given
         Board project = prepareTestData();
 
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        int averageNumberOfDaysSinceProjectCreation = (int) project.getTaskLists().stream()
+        double averageNumberOfDaysSinceProjectCreation = (int) project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .map(s -> s.getCreated())
-                .map(s -> s.until(LocalDate.now()))
-                .count();
+                .map(s -> s.until(LocalDate.now(), DAYS))
+                .map(s -> s.intValue())
+                .reduce(0, (sum, currenr) -> sum += currenr);
 
-        int averageNumberOfDaystoHandOverTheProject = (int) project.getTaskLists().stream()
+        double averageNumberOfDaystoHandOverTheProject = (int) project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .map(task -> task.getDeadline())
-                .map(s -> s.until(LocalDate.now()))
-                .count();
-        long averageTime = (averageNumberOfDaysSinceProjectCreation + averageNumberOfDaystoHandOverTheProject);
+                .map(s -> LocalDate.now().until(s, DAYS))
+                .map(s -> s.intValue())
+                .reduce(0, (sum, currenr) -> sum += currenr);
+        double averageTime = (averageNumberOfDaysSinceProjectCreation + averageNumberOfDaystoHandOverTheProject)/3;
         //Then
-        assertEquals(65, averageTime);
+        assertEquals(55.0/3, averageTime);
 
 
     }
