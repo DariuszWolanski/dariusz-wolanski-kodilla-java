@@ -9,7 +9,7 @@ public interface LibraryDatabase {
     // list books borrowed by libraryUser - wypożyczanie ksiązki
     List<Book> listBooksInHandsOf(LibraryUser libraryUser);
 
-    // try to rent a book for libraryUser - próba wypożeczenia ksiązki
+    // try to rent a book for libraryUser - próba wypożyczenia ksiązki
     // returns true when success
     // and returns false when book is unavailable to rent
     boolean rentABook(LibraryUser libraryUser, Book book);
