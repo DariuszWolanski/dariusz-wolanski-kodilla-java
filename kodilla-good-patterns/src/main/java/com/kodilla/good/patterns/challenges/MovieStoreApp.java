@@ -11,7 +11,7 @@ public class MovieStoreApp {
         List<String> titleList = movieStore.getMovies().entrySet().stream()
                 .flatMap(stringListEntry -> stringListEntry.getValue().stream())
                 .collect(Collectors.toList());
-        String title = titleList.stream().collect(Collectors.joining("!", "!", "!"));
+        String title = titleList.stream().collect(Collectors.joining("!", "", ""));
 
         System.out.println(title);
 
