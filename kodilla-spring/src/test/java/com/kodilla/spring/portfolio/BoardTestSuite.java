@@ -57,10 +57,11 @@ public class BoardTestSuite {
         board.getToDoList().addTask("TaskOne");
         board.getInProgressList().addTask("TaskTwo");
         board.getDoneList().addTask("TaskThree");
+        board.getDoneList().addTask("TaskFour");
 
         //then
         assertEquals(1, board.getToDoList().getTasks().size());
         assertEquals(1, board.getInProgressList().getTasks().size());
-        assertEquals(1, board.getDoneList().getTasks().size());
+        assertEquals(2, board.getDoneList().getTasks().size());
     }
 }
