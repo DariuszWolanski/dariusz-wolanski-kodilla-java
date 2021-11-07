@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
-public class OrderServiceForClothes implements OrderService{
+public class ProductOrderService implements OrderService{
 
     @Override
     public boolean order(Customer customer, Product product) {
