@@ -21,7 +21,7 @@ public class ReaderConfig {
     }
 
     @Bean(name = "book1")
-    @Scope("prototype")
+    @Scope("singleton")
     public Book getBookOne() {
         return new Book("The book number one");
     }
