@@ -13,8 +13,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter:2.5.0'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.6'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
