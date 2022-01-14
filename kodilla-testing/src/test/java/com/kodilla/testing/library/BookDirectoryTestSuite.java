@@ -15,6 +15,15 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class BookDirectoryTestSuite {
 
+    private List<Book> generateListOfNBooks(int booksQuantity) {
+        List<Book> resultList = new ArrayList<>();
+        for (int n = 1; n <= booksQuantity; n++) {
+            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
+            resultList.add(theBook);
+        }
+        return resultList;
+    }
+
     @Mock
     private LibraryDatabase libraryDatabaseMock;
 
@@ -79,51 +88,44 @@ class BookDirectoryTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
     }
 
-    @Test
+//    @Test
+//
+//    void testListBooksInHandsOfWhenLibraryUserDontHaveAnyBook(){
+//
+//        //Given
+//        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
+//        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
+//
+//        //When
+//
+//        //Then
+//    }
 
-    void testListBooksInHandsOfWhenLibraryUserDontHaveAnyBook(){
+//    @Test
+//
+//    void testListBooksInHandsOfWhenLibraryUserHaveOneBook(){
+//
+//        //Given
+//        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
+//        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
+//
+//        //When
+//
+//        //Then
+//    }
+//
+//    @Test
+//
+//    void testListBooksInHandsOfWhenLibraryUserHaveFiveBook(){
+//
+//        //Given
+//        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
+//        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
+//
+//        //When
+//
+//        //Then
+//    }
 
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
 
-        //When
-
-        //Then
-    }
-
-    @Test
-
-    void testListBooksInHandsOfWhenLibraryUserHaveOneBook(){
-
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
-
-        //When
-
-        //Then
-    }
-
-    @Test
-
-    void testListBooksInHandsOfWhenLibraryUserHaveFiveBook(){
-
-        //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
-
-        //When
-
-        //Then
-    }
-
-    private List<Book> generateListOfNBooks(int booksQuantity) {
-        List<Book> resultList = new ArrayList<>();
-        for (int n = 1; n <= booksQuantity; n++) {
-            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
-            resultList.add(theBook);
-        }
-        return resultList;
-    }
 }
